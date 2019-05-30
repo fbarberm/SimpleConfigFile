@@ -44,6 +44,8 @@ For reading the config file, we have the function:
 
 The type of the variables is taken into account for reading the data. Nowadays only simple types, vector and string are supported, and string only for a single word (no blanks allowed). In any case, is very easy to add more types to the code.
 
+Any line in the config file beginning with **#** is ignored.
+
 The previous config file can be read with the following code:
 ```c++
     // Variables where we want to store the data from the config file
