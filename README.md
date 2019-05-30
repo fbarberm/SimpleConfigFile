@@ -68,7 +68,7 @@ There is also a function for setting the verbosity of the functions:
     CFG::SetDebugLevel(2);
 
 The possible values are:
-    0 - No message, 1 - Only error, 2 - Show assignments
+0 - No message, 1 - Only error, 2 - Show assignments
 The default is 1.
 
 For using these functions in your program you only need to include config_file.h. You must compile with the C++11 standard or greater.
