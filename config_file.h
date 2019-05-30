@@ -56,6 +56,11 @@ void WriteLine(std::ostream & out, const std::string & name, T var)
 template<typename T>
 void WriteLine(std::ostream & out, const std::string & name, const std::vector<T> & var)
 {
+    if(var.size() == 0)
+    {
+        out << "[]";
+        return;
+    }
     out << name << DEF_CH + "[";
     
     for(unsigned i = 0; i < var.size() - 1; i++)
