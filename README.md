@@ -1,14 +1,15 @@
 # config_file
-Writing and reading configuration files in a very simple way.
+## Writing and reading configuration files in a very simple way.
 
 In test_config.cpp there are examples of how to write and read a config file.
 Basically, the file is witten with the function:
+
     CFG::WriteFile(file, list_of_names, var1, var2, ...)
 
-which has a variable number of parameters. File is an output stream and list_of_names is a container of strings (vector, list, initializer_list, ...).
+which has a variable number of parameters. *File* is an output stream and *list_of_names* is a container of *strings* (*vector*, *list*, *initializer_list*, ...).
 
 For writing the file we can do something like this:
-
+```c++
     // Variables that we want to store in the config file
     int x = 0;
     float f = 1.1;
@@ -28,8 +29,8 @@ For writing the file we can do something like this:
         CFG::WriteFile(f_out, ln, x,f,s,b,vf);
         f_out.close();
     }
-
-This is the generated test.cfg:
+```
+This is the generated *test.cfg*:
 
     x=0
     f=1.1
@@ -38,12 +39,13 @@ This is the generated test.cfg:
     vf=[1.2,2.1,3]
 
 For reading the config file, we have the function:
+
     CFG::ReadFile(file, list_of_names, var1, var2, ...)
 
-The type of the variables is taken into account for reading the data.
+The type of the variables is taken into account for reading the data. Nowadays only simple types, vector and string are supported, and string only for a single word (no blanks allowed). In any case, is very easy to add more types to the code.
 
 The previous config file can be read with the following code:
-
+```c++
     // Variables where we want to store the data from the config file
     int x = 0;
     float f = 0;
@@ -63,8 +65,9 @@ The previous config file can be read with the following code:
         CFG::ReadFile(f_in, ln, x,f,s,b,vf);
         f_in.close();
     }
-
+```
 There is also a function for setting the verbosity of the functions:
+
     CFG::SetDebugLevel(2);
 
 The possible values are:
@@ -72,4 +75,4 @@ The possible values are:
 
 The default is 1.
 
-For using these functions in your program you only need to include config_file.h. You must compile with the C++11 standard or greater.
+For using these functions in your program you only need to include *config_file.h*. You must compile with the **C++11** standard or greater.
