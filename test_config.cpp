@@ -16,16 +16,21 @@ using std::endl;
 
 int main(void)
 {
+    // Variables that we want to store in the config file
     int x = 0;
     float f = 1.1;
     bool b = false;
     std::string s = "hola";
     std::vector<float> vf = {1.2, 2.1, 3};
+
     CFG::SetDebugLevel(2);
     
+    // Names for the variables in the config file. They can be different from the actual variable names.
     std::vector<std::string> ln = {"x","f","s","b","vf"};
     CFG::WriteFile(std::cout, ln, x,f,s,b,vf);
     cout << "\nWriting to test.cfg..." << endl;
+
+    // Open the config file for writing
     std::ofstream f_out("test.cfg");
     if(! f_out)
         cout << "Error writing file !" << endl;
@@ -37,6 +42,7 @@ int main(void)
 
     cout << "Read from file test.cfg:" << endl;
     
+    // Open the config file for reading
     std::ifstream f_in("test.cfg");
     if(! f_in)
         cout << "Error reading file !" << endl;
@@ -50,6 +56,7 @@ int main(void)
 
     int x2 = -1;
     float f2 = -1;
+    
     std::ifstream f_in2("test.cfg");
     if(! f_in2)
         cout << "Error reading file !" << endl;
