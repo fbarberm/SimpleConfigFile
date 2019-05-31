@@ -1,4 +1,4 @@
-# config_file
+# SimpleConfigFile
 ## Writing and reading configuration files in a very simple way.
 
 config_file is a header-only library for writing and reading simple configuration files that associate variables with values as 'var1 = value1'. It is based on variadic templates for allowing a variable number of parameters.
