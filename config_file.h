@@ -48,8 +48,12 @@ void SetDebugLevel(int level)
  * @param var Variable with the value to store
  */
 template<typename T>
-void WriteLine(std::ostream & out, const std::string & name, T var)
-{
+void WriteLine(std::ostream& out, const std::string& name, T var) {
+    if (std::is_same<T, bool>::value) {
+        out << name << DEF_CH << (var ? "true" : "false") << std::endl;
+        return;
+    }
+
     out << name << DEF_CH << var << std::endl;
 }
 
